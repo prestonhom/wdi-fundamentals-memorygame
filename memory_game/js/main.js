@@ -35,9 +35,19 @@ function flipCard(cardID){
 	cardsInPlay.push(cards[cardID].rank);
 	console.log(cards[cardID].cardImage);
 	console.log(cards[cardID].suit);
-}
+};
 
-flipCard(0);
-flipCard(2);
-checkForMatch();
+function createBoard(){
+	for(var i = 0; i < cards.length; i++){
+		var cardElement = document.createElement('img');
+		cardElement.setAttribute('src',"images/back.png");
+		cardElement.setAttribute('data-id', i);
+		cardElement.addEventListener('click', flipCard);
+		document.getElementById('game-board').appendChild(cardElement);
+		
+	};
+};
+
+createBoard();
+
 
